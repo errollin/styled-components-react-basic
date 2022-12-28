@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { createGlobalStyle } from 'styled-components';
 
-import { DUMMY_EXPENSES } from 'data/expenses';
+import { DUMMY_EXPENSES } from 'data';
 import { Expense } from 'models';
 import Expenses from 'components/Expenses/Expenses';
+import NewExpense from 'components/NewExpense/NewExpense';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -20,12 +21,18 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
+  const [expenses, setExpenses] = useState<Array<Expense>>(DUMMY_EXPENSES);
 
-  const expenses: Array<Expense> = DUMMY_EXPENSES;
+  const handleAddExpense = (expense: Expense) => {
+    setExpenses((prevSatate) => {
+      return [expense, ...prevSatate];
+    });
+  };
 
   return (
     <React.Fragment>
       <GlobalStyle />
+      <NewExpense onAddExpense={handleAddExpense} />
       <Expenses expenses={expenses} />
     </React.Fragment>
   );

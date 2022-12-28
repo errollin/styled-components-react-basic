@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styled from 'styled-components';
 
 import { Expense } from 'models';
 import Card from 'components/common/Card/Card';
 import ExpenseList from 'components/Expenses/ExpenseList/ExpenseList';
+import ExpenseFilter from 'components/Expenses/ExpenseFilter/ExpenseFilter';
 
 type Props = {
   expenses: Array<Expense>;
@@ -19,8 +20,18 @@ const ExpensesWrapper = styled(Card)`
 `;
 
 const Expenses = (props: Props) => {
+  const [filteredYear, setFilteredYear] = useState('2022');
+
+  const handleFilterChange = (selectedYear: any) => {
+    setFilteredYear(selectedYear);
+  };
+
   return (
     <ExpensesWrapper>
+      <ExpenseFilter
+        selected={filteredYear}
+        onFilterChange={handleFilterChange}
+      />
       <ExpenseList expenses={props.expenses} />
     </ExpensesWrapper>
   );

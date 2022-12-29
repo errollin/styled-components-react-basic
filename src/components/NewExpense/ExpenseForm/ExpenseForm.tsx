@@ -6,6 +6,7 @@ import { Expense } from 'models';
 
 type Props = {
   onSaveExpenseData: Function;
+  onCancel: React.MouseEventHandler;
 };
 
 const FormControls = styled.div`
@@ -150,6 +151,9 @@ const ExpenseForm = (props: Props) => {
         </FormControl>
       </FormControls>
       <FormActions>
+        <Button type='button' onClick={props.onCancel}>
+          Cancel
+        </Button>
         <Button type='submit'>Add Expense</Button>
       </FormActions>
     </Form>

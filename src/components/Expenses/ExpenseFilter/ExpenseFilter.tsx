@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { Year } from 'models';
+import { Item } from 'models';
 import { DUMMY_YEAR_OPTIONS } from 'data';
 
 type Props = {
@@ -38,7 +38,7 @@ const Select = styled.select`
 const Option = styled.option``;
 
 const ExpenseFilter = (props: Props) => {
-  const years: Array<Year> = DUMMY_YEAR_OPTIONS;
+  const years: Array<Item> = DUMMY_YEAR_OPTIONS;
 
   const handleChangeFilter: React.ChangeEventHandler = (event: any) => {
     props.onFilterChange(event.target.value);

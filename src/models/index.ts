@@ -1,4 +1,4 @@
 import type { Expense } from 'models/interfaces/expense.interface';
-import type { Year } from './interfaces/year.interface';
+import type { Item } from './interfaces/item.interface';
 
-export type { Expense, Year };
+export type { Expense, Item };

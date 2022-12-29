@@ -6,6 +6,7 @@ import { Expense } from 'models';
 import Card from 'components/common/Card/Card';
 import ExpenseList from 'components/Expenses/ExpenseList/ExpenseList';
 import ExpenseFilter from 'components/Expenses/ExpenseFilter/ExpenseFilter';
+import ExpenseChart from 'components/Expenses/ExpenseChart/ExpenseChart';
 
 type Props = {
   expenses: Array<Expense>;
@@ -36,6 +37,7 @@ const Expenses = (props: Props) => {
         selected={filteredYear}
         onFilterChange={handleFilterChange}
       />
+      <ExpenseChart expenses={filteredExpenses} />
       <ExpenseList expenses={filteredExpenses} />
     </ExpensesWrapper>
   );

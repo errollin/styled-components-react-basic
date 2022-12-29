@@ -11,6 +11,8 @@ type Props = {
   date: Date;
 };
 
+const Item = styled.li``;
+
 const ItemWrapper = styled(Card)`
   display: flex;
   justify-content: space-between;
@@ -66,13 +68,15 @@ const PriceWrapper = styled.div`
 
 const ExpenseItem = (props: Props) => {
   return (
-    <ItemWrapper>
-      <ExpenseDate date={props.date} />
-      <DescriptionWrapper>
-        <h2>{props.title}</h2>
-        <PriceWrapper>${props.amount}</PriceWrapper>
-      </DescriptionWrapper>
-    </ItemWrapper>
+    <Item>
+      <ItemWrapper>
+        <ExpenseDate date={props.date} />
+        <DescriptionWrapper>
+          <h2>{props.title}</h2>
+          <PriceWrapper>${props.amount}</PriceWrapper>
+        </DescriptionWrapper>
+      </ItemWrapper>
+    </Item>
   );
 };
 

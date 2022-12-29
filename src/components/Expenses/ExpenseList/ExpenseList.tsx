@@ -9,12 +9,21 @@ type Props = {
   expenses: Array<Expense>;
 };
 
-const ExpenseListWrapper = styled.div`
+const ExpenseListWrapper = styled.ul`
   list-style: none;
   padding: 0;
 `;
 
+const ExpenseListFallback = styled.h2`
+  color: white;
+  text-align: center;
+`;
+
 const ExpenseList = (props: Props) => {
+  if (props.expenses.length === 0) {
+    return <ExpenseListFallback>No Expenses Found!</ExpenseListFallback>;
+  }
+
   return (
     <ExpenseListWrapper>
       {props.expenses.map((item: Expense) => (

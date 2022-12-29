@@ -26,13 +26,17 @@ const Expenses = (props: Props) => {
     setFilteredYear(selectedYear);
   };
 
+  const filteredExpenses = props.expenses.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
+
   return (
     <ExpensesWrapper>
       <ExpenseFilter
         selected={filteredYear}
         onFilterChange={handleFilterChange}
       />
-      <ExpenseList expenses={props.expenses} />
+      <ExpenseList expenses={filteredExpenses} />
     </ExpensesWrapper>
   );
 };
